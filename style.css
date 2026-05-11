@@ -1,0 +1,220 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f7fa;
+  margin: 0;
+  padding: 30px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+}
+
+button:hover {
+  background-color: #45a049;
+    transform: scale(1.05);
+}
+
+a {
+  text-decoration: none;
+}
+
+input {
+  padding: 10px;
+  margin: 10px 0;
+  width: 100%;
+  border-radius: 6px;
+}
+select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  background-color: white;
+  font-size: 14px;
+  cursor: pointer;
+
+  margin-top: 10px;
+}
+
+    
+select:hover {
+  border-color: #888;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.container {
+  background-color: white;
+  padding: 40px;
+  border-radius: 16px;
+  text-align: center;
+  width: 45%;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+
+.word-list {
+  margin-top: 20px;
+    max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.word-card {
+  background-color: #ffffff;
+  padding: 15px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: 0.2s;
+}
+
+.word-card:hover {
+  transform: scale(1.02);
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+.category {
+  background-color: #eee;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.hint-btn:hover {
+    background-color: #c0aa49;
+}
+.training-card {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.training-card:hover {
+  transform: translateY(-3px);
+}
+
+.question {
+  font-size: 28px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.answer-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.buttons {
+  margin-top: 15px;
+}
+
+.check-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.hint-btn {
+  background-color: #f39c12;
+  color: white;
+}
+
+.hint-btn:hover {
+    background-color: #da8f20;
+}
+
+.result {
+  margin-top: 15px;
+  font-weight: bold;
+  text-align: center;
+} 
+
+.back-link {
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+
+
+button {
+  transition: 0.2s;
+}
+
+
+
+button:active {
+  transform: scale(0.95);
+}
+
+
+
+.back-link {
+  display: inline-block;
+  padding: 8px 16px;
+  margin-bottom: 15px;
+
+  background-color: #e0e0e0;
+  color: #333;
+
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+
+  transition: 0.2s;
+}
+
+.back-link:hover {
+  background-color: #d5d5d5;
+  transform: translateX(-3px);
+}
+
+
