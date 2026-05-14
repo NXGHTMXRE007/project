@@ -8,20 +8,22 @@
 </head>
 <body>
 
+<div class="container">
+
   <h1>Тренировка</h1>
 
   <a href="index.html" class="back-link">← Назад</a>
 
   <hr>
 
-<select>
-  <option>Английский → Русский</option>
-  <option>Русский → Английский</option>
+<select id="mode">
+  <option value="eng-ru">Английский → Русский</option>
+  <option value="ru-eng">Русский → Английский</option>
 </select>
 
 <label>Выберите категорию:</label>
 
-<select>
+<select id="trainCategory">
   <option value="all">Все категории</option>
   <option value="animals">Животные</option>
   <option value="food">Еда</option>
@@ -30,15 +32,19 @@
   <option value="colors">Цвета</option>
 </select>
 
+<div class="training-card">
+  <p id="question" class="question"></p>
+</div>
 
-<input placeholder="Введите перевод">
+<input id="answer" class="answer-input" placeholder="Введите перевод">
 
-
-  <button>Проверить</button>
-  <button>Подсказка</button>
-  <button>Следующее</button>
-
-
-<script src="scriptTraining.js"></script>
+<div class="buttons">
+  <button class="check-btn" onclick="checkAnswer()">Проверить</button>
+  <button class="hint-btn" onclick="showHint()">Подсказка</button>
+  <button onclick="nextWord()">Следующее</button>
+</div>
+</div>
+<p id="result" class="result"></p>
+<script src="training.js"></script>
 </body>
 </html>

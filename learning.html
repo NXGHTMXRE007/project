@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<div class="container">
+
   <h1>Обучение</h1>
 
   <a href="index.html" class="back-link">← Назад</a>
@@ -25,6 +27,17 @@
     <option value="colors">Цвета</option>
   </select>
 
+  <div class="learn-card">
+    <p id="learnWord" class="word">Нажмите "Следующее слово"</p>
+    <p id="learnTranslation" class="translation"></p>
+  </div>
+
+  <div class="buttons">
+    <button onclick="showTranslation()">Показать перевод</button>
+    <button onclick="nextLearnWord()">Следующее слово</button>
+  </div>
+
+</div>
 
 <script src="learning.js"></script>
 

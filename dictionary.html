@@ -22,15 +22,17 @@
   <option value="objects">Предметы</option>
   <option value="colors">Цвета</option>
 </select>
+<br><br>
+<hr>
 
 
-
-<div>
+<div style="display: flex; justify-content: center;">
 <input id="eng" placeholder="English word">
+<P style="margin: 20px;">-</P>
 <input id="ru" placeholder="Перевод">
 </div>
 
-<select>
+<select id="category">
   <option value="animals">Животные</option>
   <option value="food">Еда</option>
   <option value="people">Люди</option>
@@ -38,11 +40,14 @@
   <option value="colors">Цвета</option>
 </select>
 
-<button>Добавить</button>
+<button onclick="add()">Добавить</button>
+<hr>
 
+<div id="wordList" class="word-list">
 
 </div>
 
 </div>
+<script src="dictionary.js"></script>
 </body>
 </html>
