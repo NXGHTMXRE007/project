@@ -55,6 +55,25 @@ let words = JSON.parse(localStorage.getItem("words")) || [
   { eng: "orange", ru: "оранжевый", category: "colors" }
 ];
 
+document.addEventListener("DOMContentLoaded", function () {
+  const toggle = document.getElementById("themeToggle");
+
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+    toggle.checked = true;
+  }
+
+  toggle.addEventListener("change", function () {
+    document.body.classList.toggle("dark");
+
+    if (toggle.checked) {
+      localStorage.setItem("theme", "dark");
+    } else {
+      localStorage.setItem("theme", "light");
+    }
+  });
+});
+
 let currentWord = null;
 function nextWord() {
   const selectedCategory = document.getElementById("trainCategory").value;

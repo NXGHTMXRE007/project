@@ -9,6 +9,13 @@
 <body>
 
 <div class="container">
+<div class="theme-control">
+  <span class="theme-label">Тема</span>
+  <label class="theme-switch">
+    <input type="checkbox" id="themeToggle">
+    <span class="slider"></span>
+  </label>
+</div>
 <h1>Словарь-тренажёр</h1>
 
 <h2>Выберите раздел:</h2>
@@ -25,6 +32,28 @@
   <button>Тренировка</button>
 </a>
 
+
+
 </div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const toggle = document.getElementById("themeToggle");
+
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+    toggle.checked = true;
+  }
+
+  toggle.addEventListener("change", function () {
+    document.body.classList.toggle("dark");
+
+    if (toggle.checked) {
+      localStorage.setItem("theme", "dark");
+    } else {
+      localStorage.setItem("theme", "light");
+    }
+  });
+});
+</script>
 </body>
 </html>
