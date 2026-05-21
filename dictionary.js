@@ -1,4 +1,4 @@
-let words = JSON.parse(localStorage.getItem("words")) || [
+let words = [
  { eng: "cat", ru: "кот", category: "animals" },
   { eng: "dog", ru: "собака", category: "animals" },
   { eng: "mouse", ru: "мышь", category: "animals" },
@@ -83,8 +83,8 @@ function renderWords() {
   words.sort((a, b) => {
   return a.eng.localeCompare(b.eng);
   });
-  
-  words.filter(word => {
+  words
+    .filter(word => {
       const matchSearch =
         word.eng.toLowerCase().includes(search) ||
         word.ru.toLowerCase().includes(search);
@@ -95,8 +95,7 @@ function renderWords() {
 
       return matchSearch && matchCategory;
     })
-
-    words.forEach((word, index) => {
+    .forEach((word, index) => {
 
       const card = document.createElement("div");
       card.className = "word-card";
@@ -114,10 +113,10 @@ function renderWords() {
       btn.textContent = "✖";
 
       btn.onclick = function () {
-      const realIndex = words.indexOf(word);
-      words.splice(realIndex, 1);
-      renderWords();
-    };
+  const realIndex = words.indexOf(word);
+  words.splice(realIndex, 1);
+  renderWords();
+};
 
       card.appendChild(text);
       card.appendChild(cat);
@@ -137,17 +136,19 @@ function add() {
     return;
   }
 
+  // добавляем в массив
   words.push({
     eng: eng,
     ru: ru,
     category: category
   });
 
+  // обновляем список
   renderWords();
 
+  // очищаем поля
   document.getElementById("eng").value = "";
   document.getElementById("ru").value = "";
-  localStorage.setItem("words", JSON.stringify(words));
 }
 
 

@@ -207,6 +207,11 @@ button:active {
   transform: scale(0.95);
 }
 
+input:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
 
 
 .back-link {
@@ -329,5 +334,57 @@ input:checked + .slider {
 
 input:checked + .slider::before {
   transform: translateX(24px);
+}
+
+
+@media (max-width: 800px) {
+
+  body {
+    padding: 10px;
+    height: auto;
+    align-items: flex-start;
+  }
+
+  .container {
+    width: 100%;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .question {
+    font-size: 22px;
+  }
+
+
+
+.word-card {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+  .delete-btn {
+    align-self: flex-end;
+    width: auto; 
+  padding: 6px 10px;
+  }
+
 }
 
