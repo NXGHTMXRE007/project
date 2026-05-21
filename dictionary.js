@@ -83,8 +83,7 @@ function renderWords() {
   words.sort((a, b) => {
   return a.eng.localeCompare(b.eng);
   });
-  words
-    .filter(word => {
+  words.filter(word => {
       const matchSearch =
         word.eng.toLowerCase().includes(search) ||
         word.ru.toLowerCase().includes(search);
@@ -95,7 +94,7 @@ function renderWords() {
 
       return matchSearch && matchCategory;
     })
-    .forEach((word, index) => {
+    words.forEach((word, index) => {
 
       const card = document.createElement("div");
       card.className = "word-card";
