@@ -7,11 +7,10 @@ body {
   background-color: #f5f7fa;
   margin: 0;
   padding: 30px;
-
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 h1 {
@@ -27,6 +26,7 @@ button {
   cursor: pointer;
   background-color: #4CAF50;
   color: white;
+  transition: 0.2s;
 }
 
 button:hover {
@@ -52,7 +52,6 @@ select {
   background-color: white;
   font-size: 14px;
   cursor: pointer;
-
   margin-top: 10px;
 }
 
@@ -78,9 +77,10 @@ label {
 }
 
 
+
 .word-list {
   margin-top: 20px;
-    max-height: 300px;
+  max-height: 300px;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -90,7 +90,6 @@ label {
   padding: 15px;
   margin-bottom: 12px;
   border-radius: 12px;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -124,9 +123,6 @@ label {
   margin-left: 10px;
 }
 
-.hint-btn:hover {
-    background-color: #c0aa49;
-}
 .training-card {
   margin: 20px 0;
   padding: 20px;
@@ -178,11 +174,6 @@ label {
   text-align: center;
 } 
 
-.back-link {
-  text-decoration: none;
-  display: inline-block;
-  margin-bottom: 10px;
-}
 
 @keyframes fadeIn {
   from {
@@ -195,14 +186,6 @@ label {
   }
 }
 
-
-
-button {
-  transition: 0.2s;
-}
-
-
-
 button:active {
   transform: scale(0.95);
 }
@@ -211,8 +194,6 @@ input:focus {
   outline: none;
   box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
 }
-
-
 
 .back-link {
   display: inline-block;
@@ -337,12 +318,31 @@ input:checked + .slider::before {
 }
 
 
-@media (max-width: 800px) {
+.word-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
+.word-text {
+  text-align: left;
+  flex: 1;
+}
+
+.category {
+  min-width: 80px;
+  text-align: center;
+}
+
+.delete-btn {
+  flex-shrink: 0;
+}
+
+@media (max-width: 800px) {
   body {
     padding: 10px;
-    height: auto;
     align-items: flex-start;
+    min-height: 100vh;
   }
 
   .container {
@@ -372,19 +372,10 @@ input:checked + .slider::before {
     font-size: 22px;
   }
 
-
-
-.word-card {
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
   .delete-btn {
     align-self: flex-end;
     width: auto; 
-  padding: 6px 10px;
+    padding: 6px 10px;
+    }
   }
-
-}
 

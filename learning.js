@@ -1,4 +1,4 @@
-let words = [
+let words = JSON.parse(localStorage.getItem("words")) || [
  { eng: "cat", ru: "кот", category: "animals" },
   { eng: "dog", ru: "собака", category: "animals" },
   { eng: "mouse", ru: "мышь", category: "animals" },

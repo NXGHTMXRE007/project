@@ -1,4 +1,4 @@
-let words = [
+let words = JSON.parse(localStorage.getItem("words")) || [
  { eng: "cat", ru: "кот", category: "animals" },
   { eng: "dog", ru: "собака", category: "animals" },
   { eng: "mouse", ru: "мышь", category: "animals" },
@@ -80,51 +80,51 @@ function renderWords() {
   const selectedCategory = document.getElementById("filterCategory").value;
 
   list.innerHTML = "";
-  words.sort((a, b) => {
-  return a.eng.localeCompare(b.eng);
+
+  words.sort((a, b) => a.eng.localeCompare(b.eng));
+
+  const filteredWords = words.filter(word => {
+    const matchSearch =
+      word.eng.toLowerCase().includes(search) ||
+      word.ru.toLowerCase().includes(search);
+
+    const matchCategory =
+      selectedCategory === "all" ||
+      word.category === selectedCategory;
+
+    return matchSearch && matchCategory;
   });
-  words.filter(word => {
-      const matchSearch =
-        word.eng.toLowerCase().includes(search) ||
-        word.ru.toLowerCase().includes(search);
 
-      const matchCategory =
-        selectedCategory === "all" ||
-        word.category === selectedCategory;
+  filteredWords.forEach((word) => {
+    const card = document.createElement("div");
+    card.className = "word-card";
 
-      return matchSearch && matchCategory;
-    })
-    words.forEach((word, index) => {
+    const text = document.createElement("span");
+    text.className = "word-text";
+    text.textContent = word.eng + " - " + word.ru;
 
-      const card = document.createElement("div");
-      card.className = "word-card";
+    const cat = document.createElement("span");
+    cat.className = "category";
+    cat.textContent = word.category;
 
-      const text = document.createElement("span");
-      text.className = "word-text";
-      text.textContent = word.eng + " - " + word.ru;
+    const btn = document.createElement("button");
+    btn.className = "delete-btn";
+    btn.textContent = "✖";
 
-      const cat = document.createElement("span");
-      cat.className = "category";
-      cat.textContent = word.category;
+    btn.onclick = function () {
+      const realIndex = words.indexOf(word);
+      words.splice(realIndex, 1);
+      localStorage.setItem("words", JSON.stringify(words));
+      renderWords();
+    };
 
-      const btn = document.createElement("button");
-      btn.className = "delete-btn";
-      btn.textContent = "✖";
+    card.appendChild(text);
+    card.appendChild(cat);
+    card.appendChild(btn);
 
-      btn.onclick = function () {
-  const realIndex = words.indexOf(word);
-  words.splice(realIndex, 1);
-  renderWords();
-};
-
-      card.appendChild(text);
-      card.appendChild(cat);
-      card.appendChild(btn);
-
-      list.appendChild(card);
-    });
+    list.appendChild(card);
+  });
 }
-
 
 function add() {
   const eng = document.getElementById("eng").value;
@@ -135,17 +135,16 @@ function add() {
     return;
   }
 
-  // добавляем в массив
   words.push({
     eng: eng,
     ru: ru,
     category: category
   });
 
-  // обновляем список
+  localStorage.setItem("words", JSON.stringify(words));
+
   renderWords();
 
-  // очищаем поля
   document.getElementById("eng").value = "";
   document.getElementById("ru").value = "";
 }
@@ -154,3 +153,4 @@ function add() {
 renderWords();
 document.getElementById("search").oninput = renderWords;
 document.getElementById("filterCategory").onchange = renderWords;
+
